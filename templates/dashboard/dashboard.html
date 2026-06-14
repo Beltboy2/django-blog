@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_staff %}
+
+<div class="row">
+    <!-- Left sidebar -->
+    {% include 'dashboard/sidebar.html' %}
+    <!-- Load the sidebar here -->
+    
+    <!-- Right side content -->
+    <div class="col-md-9">
+        <div class="row">
+            <span>Logged in as <b>{{ user }}</b></span>
+            <div class="col">
+                <div class="card border-default mb-3">
+                    <div class="card-header text-center text-uppercase font-weight-bold">All Categories</div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title text-center">{{ category_count }}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-default mb-3">
+                    <div class="card-header text-center text-uppercase font-weight-bold">All Posts</div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title text-center">{{ blogs_count }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% else %}
+<h1><center>You are forbidden</center></h1>
+{% endif %}
+{% endblock %}
